@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaCDN - Reel Extractor</title>
+    <!-- Modern Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob pink"></div>
+        <div class="blob purple"></div>
+        <div class="blob yellow"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1 class="gradient-text">InstaCDN</h1>
+            <p>Extract direct raw <code>.mp4</code> links from Instagram Reels.</p>
+        </header>
+
+        <section class="card glass">
+            <form id="extract-form">
+                <div class="input-group">
+                    <input 
+                        type="url" 
+                        id="reel-url" 
+                        placeholder="https://www.instagram.com/reel/..." 
+                        required 
+                        autocomplete="off"
+                    >
+                    <button type="submit" id="extract-btn">
+                        <span class="btn-text">Extract</span>
+                        <span class="loader hidden"></span>
+                    </button>
+                </div>
+            </form>
+            <div id="error-message" class="error-toast hidden"></div>
+        </section>
+
+        <section id="result-container" class="card glass hidden">
+            <div class="result-header">
+                <h2>Raw Link Extracted</h2>
+                <span class="badge success">Ready</span>
+            </div>
+            
+            <div class="raw-link-wrapper">
+                <input type="text" id="raw-url-output" readonly>
+                <button id="copy-btn" class="icon-btn" title="Copy to clipboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="video-preview">
+                <video id="video-player" controls preload="metadata"></video>
+            </div>
+            <a id="download-btn" class="download-link" href="#" target="_blank" rel="noopener">
+                Open in Browser
+            </a>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
